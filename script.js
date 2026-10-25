@@ -17,7 +17,7 @@ const PRIVATE_DATA_SOURCE = [
 ];
 
 // ТВОЙ СЕКРЕТНЫЙ ПАРОЛЬ ДОСТУПА ДЛЯ ДРУЗЕЙ (Меняй прямо в кавычках)
-const SECRET_PASSPHRASE = "PasswordForFriends"; 
+const SECRET_PASSPHRASE = "12312312"; 
 
 let savedClickEvent = null;
 
