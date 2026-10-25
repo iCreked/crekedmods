@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrekedMods • Mods Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Криптографическая библиотека для защиты данных -->
+    <script src="https://cloudflare.com"></script>
+</head>
+<body>
+
+    <!-- Живой анимированный фон -->
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="glow-point"></div>
+    </div>
+
+    <div class="app-container">
+        
+        <!-- Левый вертикальный сайдбар -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="header-top-row">
+                    <h2 class="breathing-text">CrekedMods</h2>
+                    <button class="burger-btn" onclick="toggleSidebar()">☰</button>
+                </div>
+                <p class="sidebar-subtitle">Mods for Creked</p>
+            </div>
+            
+            <!-- Поиск -->
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="modSearch" placeholder="Поиск модов..." oninput="searchMods()">
+            </div>
+            
+            <!-- Навигация -->
+            <nav class="filters">
+                <div class="menu-label">Категории</div>
+                <button class="filter-btn active" onclick="filterMods('all', event)">
+                    <span class="dot-icon"></span>
+                    <span class="btn-text">Все модификации</span>
+                    <span class="short-text">ALL</span>
+                </button>
+                <button class="filter-btn" onclick="filterMods('redux', event)">
+                    <span class="dot-icon"></span>
+                    <span class="btn-text">Редуксы</span>
+                    <span class="short-text">RDX</span>
+                </button>
+                <button class="filter-btn" onclick="filterMods('weapons', event)">
+                    <span class="dot-icon"></span>
+                    <span class="btn-text">Оружие</span>
+                    <span class="short-text">GUN</span>
+                </button>
+                <button class="filter-btn" onclick="filterMods('maps', event)">
+                    <span class="dot-icon"></span>
+                    <span class="btn-text">Карты</span>
+                    <span class="short-text">MAP</span>
+                </button>
+                <button class="filter-btn" onclick="filterMods('other', event)">
+                    <span class="dot-icon"></span>
+                    <span class="btn-text">Разное</span>
+                    <span class="short-text">ETC</span>
+                </button>
+
+                <!-- НАШ ЗАПОРОЛЕННЫЙ РАЗДЕЛ -->
+                <div class="menu-label">Приват</div>
+                <button class="filter-btn lock-btn" onclick="openModal(event)">
+                    <span class="dot-icon secure-dot"></span>
+                    <span class="btn-text">🔒 Данные</span>
+                    <span class="short-text" style="color: #ef4444;">PASS</span>
+                </button>
+                <div class="menu-label">Полезное</div>
+                <a href="https://wiki.majestic-rp.ru/ru/map" target="_blank" class="sidebar-link">
+                    <span class="dot-icon link-dot"></span>
+                    <span class="btn-text">Majestic MAP</span>
+                    <span class="short-text">MAP</span>
+                </a>
+            </nav>
+
+            <!-- Технические виджеты -->
+            <div class="sidebar-widgets">
+                <div class="widget-item">
+                    <span class="widget-status status-sync"></span>
+                    <div class="widget-text">
+                        <span class="widget-title">Синхронизация файлов</span>
+                        <span class="widget-value">Все моды обновлены</span>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <span class="widget-status status-ping"></span>
+                    <div class="widget-text">
+                        <span class="widget-title">Репозиторий Cloud</span>
+                        <span class="widget-value">Uptime: 99.9% • 14ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Идеально чистый и строгий футер сайта без лишних кнопок -->
+            <div class="sidebar-footer">
+                <span class="version-tag">v0.1 • CrekedMods</span>
+            </div>
+        </aside>
+
+
+
+
+        <!-- Основной контент справа -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-info">
+                    <h1 class="breathing-title" id="pageTitle">Графика и модификации для GTA V</h1>
+                    <p id="pageDesc">Эксклюзивный архив для нашей команды. Все сборки оптимизированы под высокий FPS.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="action-btn" onclick="window.location.reload();">Обновить</button>
+                    <a href="https://wiki.majestic-rp.ru/ru" target="_blank" class="action-btn secondary">Majestic Wiki</a>
+                </div>
+            </header>
+
+            <!-- Сетка с карточками модов -->
+            <div class="mod-grid" id="modGrid">
+
+                <!-- КАРТОЧКА: Редукс -->
+                <div class="mod-card" data-category="redux" onclick="openModDetail('Network Redux V3', 'Самый стабильный и популярный редукс для сетевой игры. Полностью убирает лишний туман и смог, значительно повышая FPS в густонаселенных зонах гетто. Переработано освещение: ночи стали глубокими и контрастными, а дневной свет — сочным, без эффекта засветов. Проверен администрацией на Majestic RP и 5RP, заменяемые файлы не вызывают бана.', '4.2 GB', 'Редукс', 'bX7wL8vN-wA', 'https://google.com...')">
+                    <div class="mod-image" style="background-image: url('https://youtube.com');">
+                        <span class="mod-badge badge-redux">Редукс</span>
+                    </div>
+                    <div class="mod-info">
+                        <h3 class="mod-title">Network Redux V3</h3>
+                        <p class="mod-desc">Топовый редукс. Повышает FPS, убирает туман, делает красивое ночное небо и сочную картинку дня. Проверен на Majestic и 5RP.</p>
+                        <div class="card-footer">
+                            <span class="file-size">📦 4.2 GB</span>
+                            <button class="preview-btn-fake">Смотреть</button>
+                        </div>
+                    </div>
+                </div>
+
+<!-- КАРТОЧКА: Оружие -->
+<div class="mod-card" data-category="weapons" onclick="openModDetail('Пак Неонового Оружия', 'Кастомный пак текстур, полностью заменяющий стандартные и тусклые модели Assault Rifle (калаша), Heavy Pistol (ревика) и Сайдги. Модели получили неоновую градиентную подсветку, которая эффектно светится в темноте. В комплекте идут кастомные цветные трассера пуль, упрощающие контроль попаданий в ночных перестрелках.', '120 MB', 'Оружие', 'HVCMTaIUCWQ', '#')">
+    <div class="mod-image" style="background-image: url('https://youtube.com');">
+        <span class="mod-badge badge-weapons">Оружие</span>
+    </div>
+    <div class="mod-info">
+        <h3 class="mod-title">ТЕСТОВАЯ КАРТОЧКА</h3>
+        <p class="mod-desc">Заменяет стандартные модельки калаша, ревика и сайги на неоновые (светятся в темноте). Трассера включены.</p>
+        <div class="card-footer">
+            <span class="file-size">📦 120 MB</span>
+            <button class="preview-btn-fake">Смотреть</button>
+        </div>
+    </div>
+</div>
+
+
+                <!-- КАРТОЧКА: Карты -->
+                <div class="mod-card" data-category="maps" onclick="openModDetail('Цветная карта районов', 'Высококачественная HD-карта для игрового меню и мини-радара. На карту нанесены четкие полупрозрачные цветовые границы всех криминальных районов (гетто), а также подписаны текстовые названия всех ключевых улиц и переулков, что упрощает навигацию и координацию действий состава в Discord во время закрасов.', '45 MB', 'Карты', '3ZAn6D2qNQA', '#')">
+                    <div class="mod-image" style="background-image: url('https://youtube.com');">
+                        <span class="mod-badge badge-maps">Карты</span>
+                    </div>
+                    <div class="mod-info">
+                        <h3 class="mod-title">Цветная карта районов</h3>
+                        <p class="mod-desc">Качественная HD-карта в меню и на радаре. Четко видны границы гетто и названия всех улиц для удобного закраса.</p>
+                        <div class="card-footer">
+                            <span class="file-size">📦 45 MB</span>
+                            <button class="preview-btn-fake">Смотреть</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА: Разное -->
+                <div class="mod-card" data-category="other" onclick="openModDetail('Кастомный прицел & Звуки', 'Сборка мелких геймплейных утилит. Заменяет стандартный динамический прицел на статичную аккуратную белую точку, которая не расширяется при беге и зажиме. Дополнительно заменены звуки регистрации попадания (хитмаркеры) на короткие и отчетливые щелчки в стиле Call of Duty, помогающие лучше понимать, когда вы нанесли урон.', '15 MB', 'Разное', '318a_wTshgM', '#')">
+                    <div class="mod-image" style="background-image: url('https://youtube.com');">
+                        <span class="mod-badge badge-other">Разное</span>
+                    </div>
+                    <div class="mod-info">
+                        <h3 class="mod-title">Кастомный прицел & Звуки</h3>
+                        <p class="mod-desc">Жирный белый прицел-точка, который не расширяется при стрельбе. Плюс сочные звуки попадания (хитмаркеры) в стиле COD.</p>
+                        <div class="card-footer">
+                            <span class="file-size">📦 15 MB</span>
+                            <button class="preview-btn-fake">Смотреть</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <!-- ОКНО №1: ВВОД ПАРОЛЯ ДЛЯ ПРИВАТНОЙ ЗОНЫ -->
+    <div class="modal-overlay" id="passwordModal">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3>🔐 Доступ ограничен</h3>
+                <button class="close-modal-btn" onclick="closeModal('passwordModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Для просмотра защищенных данных введите секретный ключ авторизации:</p>
+                <input type="password" id="modalPasswordInput" placeholder="Введите ключ доступа..." onkeydown="if(event.key === 'Enter') checkPrivateAccess()">
+                <div class="modal-error" id="modalErrorText">Неверный ключ доступа! Попробуйте снова.</div>
+            </div>
+            <div class="modal-footer-btns">
+                <button class="modal-btn cancel" onclick="closeModal('passwordModal')">Отмена</button>
+                <button class="modal-btn submit" onclick="checkPrivateAccess()">Войти</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ОКНО №2: ДЕТАЛЬНЫЙ ПРОСМОТР МОДА -->
+    <div class="modal-overlay" id="modDetailModal">
+        <div class="modal-window large-modal">
+            <div class="modal-header">
+                <h3 id="detailTitle">Название модификации</h3>
+                <button class="close-modal-btn" onclick="closeModal('modDetailModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="video-container" id="detailVideoContainer"></div>
+                <p id="detailDesc" class="detail-description">Описание мода...</p>
+                <div class="detail-meta">
+                    <span id="detailSize">Размер: --</span>
+                    <span id="detailCategory">Категория: --</span>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button class="modal-btn cancel" onclick="closeModal('modDetailModal')">Закрыть</button>
+                <a id="detailDownloadBtn" href="#" target="_blank" class="modal-btn submit text-center">Скачать модификацию</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-notification" id="toastNotify"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
